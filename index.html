@@ -116,6 +116,55 @@
     }
     nav a:hover { color: var(--secondary); }
 
+    /* YouTube Section */
+    .youtube-section {
+      background: var(--card);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border-top: 3px solid #ff0000;
+    }
+    .youtube-section h3 {
+      color: #ff0000;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .youtube-btn {
+      display: block;
+      background: #ff0000;
+      color: white;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 15px;
+      transition: all 0.3s;
+    }
+    .youtube-btn:hover { background: #cc0000; transform: translateY(-2px); }
+    .youtube-preview {
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .youtube-preview img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+    }
+    .channel-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 8px;
+    }
+
     .container {
       max-width: 1100px;
       margin: 40px auto;
@@ -210,6 +259,7 @@
       <span>🔥 خبر عاجل: كيف تزيد أرباحك من أدسنس في 2026؟ اقرأ المقال الآن!</span>
       <span>💰 نصيحة اليوم: المحتوى الحصري هو سر النجاح في الربح من الإنترنت.</span>
       <span>🚀 موقع سليمان: دليلك الشامل للاحتراف والتميز التقني.</span>
+      <span>▶ قناة YouTube: نعيش بسلام — طبيعة فنلندا الساحرة! اشترك الآن @Finlad-g</span>
     </div>
   </div>
 
@@ -226,6 +276,7 @@
     <a href="javascript:void(0)" onclick="showPage('main')">الرئيسية</a>
     <a href="javascript:void(0)" onclick="showPage('privacy')">سياسة الخصوصية</a>
     <a href="https://github.com/Su1982" target="_blank">المستودع البرمجي</a>
+    <a href="https://www.youtube.com/@Finlad-g" target="_blank" style="color:#ff0000;">▶ قناة YouTube</a>
   </nav>
 
   <div class="container">
@@ -286,6 +337,25 @@
         <h3>تابعنا</h3>
         <p>يمكنك متابعة تحديثاتنا البرمجية عبر GitHub أو دعمنا للاستمرار في تقديم المحتوى المجاني.</p>
       </div>
+
+      <!-- قسم YouTube -->
+      <div class="youtube-section">
+        <h3>▶ قناتي على YouTube</h3>
+        <div class="youtube-preview">
+          <a href="https://www.youtube.com/@Finlad-g" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/default/maxresdefault.jpg"
+                 onerror="this.src='https://via.placeholder.com/320x180/ff0000/white?text=نعيش+بسلام'"
+                 alt="قناة نعيش بسلام - طبيعة فنلندا">
+          </a>
+        </div>
+        <strong>نعيش بسلام 🌿</strong>
+        <p style="font-size:0.9rem; color:#64748b; margin-top:5px;">Nature and beauty of Finland — فيديوهات عن طبيعة فنلندا وجمالها</p>
+        <div class="channel-stats">
+          <span>📹 8 فيديوهات</span>
+          <span>🌍 Finland</span>
+        </div>
+        <a href="https://www.youtube.com/@Finlad-g" target="_blank" rel="noopener" class="youtube-btn">▶ اشترك في القناة</a>
+      </div>
       <div class="sidebar-card">
         <!-- Sidebar Ad Unit -->
         <ins class="adsbygoogle"
@@ -304,6 +374,7 @@
       <a href="javascript:void(0)" onclick="showPage('main')">الرئيسية</a>
       <a href="javascript:void(0)" onclick="showPage('privacy')">الخصوصية</a>
       <a href="https://ko-fi.com/suleiman1982" target="_blank">دعم المشروع</a>
+      <a href="https://www.youtube.com/@Finlad-g" target="_blank" style="color:#ff0000;">▶ قناة YouTube</a>
     </div>
     <p style="margin-top: 20px;">جميع الحقوق محفوظة &copy; 2026 — su1982.github.io</p>
   </footer>
