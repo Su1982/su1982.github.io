@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="موقع سليمان - دليل شامل لزيادة أرباح Google AdSense في 2026.">
-  <meta name="theme-color" content="#2563eb">
+  <meta name="theme-color" content="#1e3a8a">
   <title>دليل الربح من AdSense - موقع سليمان</title>
   
   <!-- PWA Manifest -->
@@ -16,59 +16,58 @@
   
   <style>
     :root {
-      --primary: #2563eb;
-      --secondary: #3b82f6;
-      --bg: #f8fafc;
-      --text: #1e293b;
+      --primary: #1e3a8a;
+      --secondary: #2563eb;
+      --accent: #fbbf24;
+      --bg: #f1f5f9;
+      --text: #0f172a;
       --card: #ffffff;
       --kofi: #ff5e5b;
       --install: #10b981;
-      --alert: #1e3a8a;
     }
+    
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.8;
+      line-height: 1.6;
     }
 
-    /* Notification Bar like Fox News */
-    .notification-bar {
-      background-color: var(--alert);
+    /* Top Ticker (News Style) */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background-color: var(--primary);
       color: white;
-      padding: 10px;
-      text-align: center;
-      font-size: 0.9rem;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      z-index: 1001;
-    }
-    .notification-bar a {
-      color: #fbbf24;
-      text-decoration: underline;
+      padding: 10px 0;
       font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .close-bar {
-      cursor: pointer;
-      position: absolute;
-      left: 20px;
-      font-weight: bold;
+    .ticker {
+      display: inline-block;
+      white-space: nowrap;
+      padding-right: 100%;
+      animation: ticker 30s linear infinite;
     }
+    @keyframes ticker {
+      0% { transform: translate3d(100%, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+    .ticker span { margin: 0 50px; }
 
     header {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
-      color: white;
-      padding: 60px 20px;
+      background: white;
+      padding: 30px 20px;
       text-align: center;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      border-bottom: 4px solid var(--primary);
     }
-    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
-    
+    header h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: 5px; letter-spacing: -1px; }
+    header p { font-size: 1.2rem; color: #64748b; margin-bottom: 20px; }
+
     .btn-group {
       display: flex;
       justify-content: center;
@@ -76,106 +75,104 @@
       flex-wrap: wrap;
     }
     .hero-btn {
-      display: inline-block;
       background: var(--kofi);
       color: white;
-      padding: 12px 30px;
-      border-radius: 50px;
+      padding: 10px 25px;
+      border-radius: 4px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 15px rgba(255, 94, 91, 0.3);
+      transition: all 0.3s;
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
     .install-btn {
-      display: none; /* سيظهر بالـ JS */
+      display: none; /* Shows via JS */
       background: var(--install);
       color: white;
-      padding: 12px 30px;
-      border-radius: 50px;
+      padding: 10px 25px;
+      border-radius: 4px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
       border: none;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: all 0.3s;
+      font-size: 0.9rem;
     }
-    .hero-btn:hover, .install-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    }
+    .hero-btn:hover, .install-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
     nav {
-      background: white;
+      background: #f8fafc;
       padding: 15px;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border-bottom: 1px solid #e2e8f0;
     }
     nav a {
-      margin: 0 15px;
+      margin: 0 20px;
       text-decoration: none;
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: color 0.3s;
     }
-    nav a:hover { color: var(--primary); }
+    nav a:hover { color: var(--secondary); }
 
     .container {
-      max-width: 900px;
-      margin: 20px auto 40px;
+      max-width: 1100px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
       padding: 0 20px;
     }
-    
-    article {
+
+    main {
       background: var(--card);
       padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-    }
-    
-    h2 { color: var(--primary); margin: 30px 0 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
-    p { margin-bottom: 20px; font-size: 1.1rem; }
-    
-    blockquote {
-      background: #eff6ff;
-      border-right: 5px solid var(--primary);
-      padding: 20px;
-      margin: 30px 0;
-      font-style: italic;
-      color: #1e40af;
-    }
-    
-    .ad-unit-manual {
-      margin: 30px 0;
-      padding: 10px;
-      background: #f8fafc;
       border-radius: 8px;
-      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     }
-    
+
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border-top: 3px solid var(--secondary);
+    }
+
+    h2 { color: var(--primary); margin: 30px 0 15px; font-size: 1.8rem; }
+    p { margin-bottom: 20px; font-size: 1.15rem; color: #334155; }
+
+    .ad-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      padding: 15px;
+      text-align: center;
+      margin: 25px 0;
+      border-radius: 4px;
+    }
+
     footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: #1e293b;
+      background: #0f172a;
       color: #94a3b8;
+      padding: 60px 20px;
+      text-align: center;
+      margin-top: 50px;
     }
-    .links a {
-      color: #3b82f6;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    .links a:hover { text-decoration: underline; }
+    .footer-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
 
     #privacy { display: none; }
     #main-content { display: block; }
-    
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      article { padding: 20px; }
-      .notification-bar { font-size: 0.8rem; padding: 10px 30px; }
+
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      header h1 { font-size: 2rem; }
     }
   </style>
   <script>
@@ -185,143 +182,130 @@
       window.scrollTo(0,0);
     }
 
-    function closeNotification() {
-      document.getElementById('notifBar').style.display = 'none';
-    }
-
-    // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('Service Worker registered!'))
-          .catch(err => console.log('Service Worker registration failed:', err));
+        navigator.serviceWorker.register('./sw.js').then(reg => console.log('PWA Ready'));
       });
     }
 
-    // PWA Install Prompt Logic
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      const installBtn = document.getElementById('installBtn');
-      if (installBtn) {
-        installBtn.style.display = 'inline-block';
-      }
-      // إظهار تنبيه في شريط الإشعارات العلوي أيضاً
-      document.getElementById('installLink').style.display = 'inline';
+      document.getElementById('installBtn').style.display = 'inline-block';
     });
 
     function installPWA() {
       if (deferredPrompt) {
         deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            document.getElementById('installBtn').style.display = 'none';
-            document.getElementById('installLink').style.display = 'none';
-          }
-          deferredPrompt = null;
-        });
+        deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
       }
     }
   </script>
 </head>
 <body>
 
-  <div class="notification-bar" id="notifBar">
-    <span class="close-bar" onclick="closeNotification()">✕</span>
-    <span>خبر عاجل: تم إطلاق تطبيق سليمان الرسمي للكمبيوتر والجوال!</span>
-    <a href="javascript:void(0)" id="installLink" onclick="installPWA()" style="display:none;">ثبت التطبيق الآن</a>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>🔥 خبر عاجل: كيف تزيد أرباحك من أدسنس في 2026؟ اقرأ المقال الآن!</span>
+      <span>💰 نصيحة اليوم: المحتوى الحصري هو سر النجاح في الربح من الإنترنت.</span>
+      <span>🚀 موقع سليمان: دليلك الشامل للاحتراف والتميز التقني.</span>
+    </div>
   </div>
 
   <header>
-    <h1>دليل الربح من الإنترنت 2026</h1>
-    <p>مع سليمان، تعلم كيف تحقق أقصى استفادة من موقعك الإلكتروني</p>
+    <h1>موقع سليمان التقني</h1>
+    <p>بوابتك للاحتراف والربح من الإنترنت في العصر الرقمي الجديد</p>
     <div class="btn-group">
       <a href="https://ko-fi.com/suleiman1982" target="_blank" class="hero-btn">ادعمني عبر Ko-fi ☕</a>
-      <button id="installBtn" class="install-btn" onclick="installPWA()">تثبيت تطبيق سليمان 💻</button>
+      <button id="installBtn" class="install-btn" onclick="installPWA()">تثبيت التطبيق 💻</button>
     </div>
   </header>
 
   <nav>
     <a href="javascript:void(0)" onclick="showPage('main')">الرئيسية</a>
     <a href="javascript:void(0)" onclick="showPage('privacy')">سياسة الخصوصية</a>
+    <a href="https://github.com/Su1982" target="_blank">المستودع البرمجي</a>
   </nav>
 
   <div class="container">
     <div id="main-content">
-      <article>
-        <h2>كيف تزيد أرباحك من Google AdSense في 2026</h2>
-        <p>في عالم الربح من الإنترنت، تظل <strong>Google AdSense</strong> هي الخيار الأول والموثوق لملايين الناشرين حول العالم. إذا كنت تمتلك موقعاً إلكترونياً أو مدونة، فإن فهم كيفية تحسين ظهور الإعلانات وزيادة نسبة النقر (CTR) هو المفتاح لتحقيق عوائد مجزية.</p>
+      <main>
+        <article>
+          <h2>دليل احتراف أرباح Google AdSense في 2026</h2>
+          <p>أهلاً بك في موقع سليمان. اليوم سنغوص في أعماق <strong>Google AdSense</strong> لنكشف لك الأسرار التي تجعل كبار الناشرين يحققون آلاف الدولارات شهرياً. النجاح ليس صدفة، بل هو نتيجة استراتيجية دقيقة.</p>
 
-        <!-- وحدة إعلانية يدوية In-Feed Ad -->
-        <div class="ad-unit-manual">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-format="fluid"
-               data-ad-layout-key="-ef+6k-30-ac+ty"
-               data-ad-client="ca-pub-8335579908925045"
-               data-ad-slot="3808341199"></ins>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
+          <div class="ad-box">
+            <!-- In-Feed Ad Unit 1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-ef+6k-30-ac+ty"
+                 data-ad-client="ca-pub-8335579908925045"
+                 data-ad-slot="3808341199"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          </div>
 
-        <h2>1. اختيار النيش (Niche) المربح</h2>
-        <p>ليس كل المحتوى متساوياً في نظر المعلنين. المواقع التي تتحدث عن <strong>التمويل، التقنية، العقارات، والتأمين</strong> عادة ما تحصل على سعر نقرة (CPC) أعلى بكثير من المواقع العامة.</p>
+          <h2>1. سر الكلمات المفتاحية الغالية (High CPC)</h2>
+          <p>لا تضيع وقتك في كتابة محتوى لا يبحث عنه المعلنون. ركز على قطاعات مثل <strong>التكنولوجيا المالية، العملات الرقمية، والتأمين</strong>. هذه المجالات تدفع فيها الشركات مبالغ ضخمة مقابل كل نقرة.</p>
 
-        <h2>2. تحسين تجربة المستخدم على الجوال</h2>
-        <p>أكثر من 80% من زوار الإنترنت حالياً يستخدمون الهواتف الذكية. تأكد من أن موقعك <strong>متجاوب (Responsive)</strong> وسريع التحميل. جوجل تعطي الأولوية للمواقع التي تقدم تجربة سلسة لمستخدمي الجوال.</p>
+          <h2>2. التصميم المتجاوب وتجربة المستخدم</h2>
+          <p>جوجل تعشق المواقع التي تفتح بسرعة على الجوال. موقعنا الآن مبرمج بأحدث التقنيات ليضمن لك قبولاً فورياً في أدسنس وتجربة مريحة لزوارك.</p>
 
-        <!-- وحدة إعلانية يدوية In-Feed Ad -->
-        <div class="ad-unit-manual">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-format="fluid"
-               data-ad-layout-key="-ef+6k-30-ac+ty"
-               data-ad-client="ca-pub-8335579908925045"
-               data-ad-slot="3808341199"></ins>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
+          <div class="ad-box">
+            <!-- In-Feed Ad Unit 2 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-ef+6k-30-ac+ty"
+                 data-ad-client="ca-pub-8335579908925045"
+                 data-ad-slot="3808341199"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          </div>
 
-        <h2>3. استخدام الإعلانات التلقائية (Auto Ads)</h2>
-        <p>بفضل تقنيات الذكاء الاصطناعي، أصبحت <strong>الإعلانات التلقائية</strong> من جوجل قادرة على تحديد أفضل الأماكن لوضع الإعلان داخل صفحتك دون التأثير على تجربة الزائر.</p>
-
-        <blockquote>
-          "النجاح في AdSense ليس مجرد وضع إعلانات، بل هو تقديم قيمة تجعل الزائر يثق في موقعك ويعود إليه مرة أخرى."
-        </blockquote>
-
-        <h2>4. جودة المحتوى وحصريته</h2>
-        <p>جوجل تحب المحتوى الذي يقدم قيمة حقيقية للقارئ. المحتوى الحصري والطويل يساعد في تحسين ترتيبك في محركات البحث (SEO)، مما يعني زواراً أكثر وأرباحاً أعلى.</p>
-
-        <p>في الختام، الصبر والاستمرارية هما سر النجاح. ابدأ بتطبيق هذه الخطوات اليوم، وستلاحظ تحسناً تدريجياً في أداء موقعك وأرباحك.</p>
-      </article>
+          <h2>3. الاستمرارية هي مفتاح الذهب</h2>
+          <p>النشر اليومي أو الأسبوعي يخبر محركات البحث أن موقعك حي وموثوق. كلما زاد عدد مقالاتك، زادت فرص ظهور إعلاناتك أمام الجمهور المستهدف.</p>
+        </article>
+      </main>
     </div>
 
-    <div id="privacy">
-      <article>
-        <h2>سياسة الخصوصية</h2>
-        <p>نحن في موقع su1982.github.io نولي أهمية قصوى لخصوصية زوارنا. توضح هذه الوثيقة أنواع المعلومات الشخصية التي نجمعها وكيفية استخدامها.</p>
-        
-        <h3>ملفات تعريف الارتباط (Cookies)</h3>
-        <p>نحن نستخدم ملفات تعريف الارتباط لتخزين معلومات حول تفضيلات الزوار، وتسجيل معلومات محددة عن المستخدم، وتخصيص محتوى صفحة الويب بناءً على نوع المتصفح أو معلومات أخرى يرسلها الزائر.</p>
-        
-        <h3>Google AdSense</h3>
-        <p>تستخدم Google، كطرف ثالث، ملفات تعريف الارتباط لعرض الإعلانات على موقعنا. يتيح استخدام Google لملف تعريف الارتباط DART عرض الإعلانات للمستخدمين بناءً على زيارتهم لموقعنا والمواقع الأخرى على الإنترنت.</p>
-        
-        <h3>الامتثال للقوانين (GDPR & CCPA)</h3>
-        <p>نحن نلتزم بالقوانين الدولية لحماية البيانات. إذا كنت من سكان الاتحاد الأوروبي أو كاليفورنيا، فلك الحق في الوصول إلى بياناتك أو طلب مسحها.</p>
-      </article>
+    <div id="privacy" style="display:none;">
+      <main>
+        <h2>سياسة الخصوصية العالمية</h2>
+        <p>نحن نلتزم بأعلى معايير الخصوصية والأمان لزوارنا الكرام. نستخدم ملفات تعريف الارتباط فقط لتحسين تجربتك وضمان ظهور إعلانات تناسب اهتماماتك.</p>
+        <p>موقعنا متوافق تماماً مع قوانين <strong>GDPR</strong> و <strong>CCPA</strong> الدولية.</p>
+      </main>
     </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <h3>عن الموقع</h3>
+        <p>موقع سليمان هو منصة تعليمية تقنية تهدف لمساعدة الشباب العربي على دخول عالم الربح من الإنترنت باحترافية وأمان.</p>
+      </div>
+      <div class="sidebar-card">
+        <h3>تابعنا</h3>
+        <p>يمكنك متابعة تحديثاتنا البرمجية عبر GitHub أو دعمنا للاستمرار في تقديم المحتوى المجاني.</p>
+      </div>
+      <div class="sidebar-card">
+        <!-- Sidebar Ad Unit -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8335579908925045"
+             data-ad-slot="3808341199"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </aside>
   </div>
 
   <footer>
-    <p>جميع الحقوق محفوظة &copy; 2026 — su1982.github.io</p>
-    <div class="links">
-      <a href="https://github.com/Su1982" target="_blank">GitHub</a> |
-      <a href="https://finalyze-suleiman.surge.sh" target="_blank">Finalyze</a>
+    <div class="footer-links">
+      <a href="javascript:void(0)" onclick="showPage('main')">الرئيسية</a>
+      <a href="javascript:void(0)" onclick="showPage('privacy')">الخصوصية</a>
+      <a href="https://ko-fi.com/suleiman1982" target="_blank">دعم المشروع</a>
     </div>
+    <p style="margin-top: 20px;">جميع الحقوق محفوظة &copy; 2026 — su1982.github.io</p>
   </footer>
 
 </body>
