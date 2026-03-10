@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/1041/1041883.png">
   
-  <!-- كود Google AdSense المحدث - الرقم الصحيح: ca-pub-8335579908925045 -->
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8335579908925045" crossorigin="anonymous"></script>
   
   <style>
@@ -23,6 +23,7 @@
       --text: #0f172a;
       --card: #ffffff;
       --kofi: #ff5e5b;
+      --stripe: #635bff;
       --install: #10b981;
     }
     
@@ -35,7 +36,7 @@
       line-height: 1.6;
     }
 
-    /* Top Ticker (News Style) */
+    /* Top Ticker */
     .ticker-wrap {
       width: 100%;
       overflow: hidden;
@@ -82,11 +83,23 @@
       text-decoration: none;
       font-weight: bold;
       transition: all 0.3s;
-      text-transform: uppercase;
       font-size: 0.9rem;
     }
+    .stripe-btn {
+      background: var(--stripe);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
     .install-btn {
-      display: none; /* Shows via JS */
+      display: none;
       background: var(--install);
       color: white;
       padding: 10px 25px;
@@ -98,7 +111,7 @@
       transition: all 0.3s;
       font-size: 0.9rem;
     }
-    .hero-btn:hover, .install-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    .hero-btn:hover, .stripe-btn:hover, .install-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
     nav {
       background: #f8fafc;
@@ -116,6 +129,84 @@
     }
     nav a:hover { color: var(--secondary); }
 
+    /* Support Section */
+    .support-section {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .support-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+    .support-section p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 25px;
+    }
+    .support-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .support-card {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      padding: 25px 30px;
+      min-width: 200px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .support-card .amount {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--accent);
+    }
+    .support-card .label {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 15px;
+    }
+    .pay-btn-kofi {
+      display: block;
+      background: var(--kofi);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s;
+      margin-bottom: 10px;
+    }
+    .pay-btn-stripe {
+      display: block;
+      background: var(--stripe);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    .pay-btn-kofi:hover, .pay-btn-stripe:hover { opacity: 0.9; transform: translateY(-2px); }
+    .stripe-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+    }
+
     /* YouTube Section */
     .youtube-section {
       background: var(--card);
@@ -128,9 +219,6 @@
       color: #ff0000;
       font-size: 1.2rem;
       margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
     .youtube-btn {
       display: block;
@@ -146,17 +234,8 @@
       transition: all 0.3s;
     }
     .youtube-btn:hover { background: #cc0000; transform: translateY(-2px); }
-    .youtube-preview {
-      width: 100%;
-      border-radius: 6px;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-    .youtube-preview img {
-      width: 100%;
-      border-radius: 6px;
-      display: block;
-    }
+    .youtube-preview { width: 100%; border-radius: 6px; overflow: hidden; margin-bottom: 10px; }
+    .youtube-preview img { width: 100%; border-radius: 6px; display: block; }
     .channel-stats {
       display: flex;
       justify-content: space-between;
@@ -195,6 +274,24 @@
       border-top: 3px solid var(--secondary);
     }
 
+    /* Sidebar Support Card */
+    .sidebar-support {
+      background: linear-gradient(135deg, #635bff, #4f46e5);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      color: white;
+    }
+    .sidebar-support h3 { color: white; margin-bottom: 8px; font-size: 1.1rem; }
+    .sidebar-support p { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 15px; }
+    .sidebar-support .price-tag {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
     h2 { color: var(--primary); margin: 30px 0 15px; font-size: 1.8rem; }
     p { margin-bottom: 20px; font-size: 1.15rem; color: #334155; }
 
@@ -222,6 +319,7 @@
     @media (max-width: 900px) {
       .container { grid-template-columns: 1fr; }
       header h1 { font-size: 2rem; }
+      .support-cards { flex-direction: column; align-items: center; }
     }
   </style>
   <script>
@@ -267,7 +365,11 @@
     <h1>موقع سليمان التقني</h1>
     <p>بوابتك للاحتراف والربح من الإنترنت في العصر الرقمي الجديد</p>
     <div class="btn-group">
-      <a href="https://ko-fi.com/suleiman1982" target="_blank" class="hero-btn">ادعمني عبر Ko-fi ☕</a>
+      <a href="https://ko-fi.com/suleiman1982" target="_blank" class="hero-btn">☕ ادعمني عبر Ko-fi</a>
+      <a href="https://buy.stripe.com/suleiman" target="_blank" class="stripe-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>
+        ادفع €5 عبر Stripe
+      </a>
       <button id="installBtn" class="install-btn" onclick="installPWA()">تثبيت التطبيق 💻</button>
     </div>
   </header>
@@ -279,6 +381,31 @@
     <a href="https://www.youtube.com/@Finlad-g" target="_blank" style="color:#ff0000;">▶ قناة YouTube</a>
   </nav>
 
+  <!-- قسم الدعم المالي -->
+  <div class="support-section">
+    <h2>💙 ادعم الموقع واستمر في الحصول على محتوى مجاني</h2>
+    <p>مساهمتك تساعدنا على الاستمرار في نشر المحتوى التقني المجاني باللغة العربية</p>
+    <div class="support-cards">
+      <div class="support-card">
+        <div class="amount">€5</div>
+        <div class="label">دعم عبر Ko-fi ☕</div>
+        <a href="https://ko-fi.com/suleiman1982" target="_blank" class="pay-btn-kofi">☕ ادعم عبر Ko-fi</a>
+        <div class="stripe-badge">✓ آمن ومضمون</div>
+      </div>
+      <div class="support-card">
+        <div class="amount">€5</div>
+        <div class="label">دفع مباشر عبر Stripe 💳</div>
+        <a href="https://buy.stripe.com/suleiman" target="_blank" class="pay-btn-stripe">
+          💳 ادفع عبر Stripe
+        </a>
+        <div class="stripe-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>
+          مدفوعات آمنة بواسطة Stripe
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div id="main-content">
       <main>
@@ -287,7 +414,6 @@
           <p>أهلاً بك في موقع سليمان. اليوم سنغوص في أعماق <strong>Google AdSense</strong> لنكشف لك الأسرار التي تجعل كبار الناشرين يحققون آلاف الدولارات شهرياً. النجاح ليس صدفة، بل هو نتيجة استراتيجية دقيقة.</p>
 
           <div class="ad-box">
-            <!-- In-Feed Ad Unit 1 -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-format="fluid"
@@ -304,7 +430,6 @@
           <p>جوجل تعشق المواقع التي تفتح بسرعة على الجوال. موقعنا الآن مبرمج بأحدث التقنيات ليضمن لك قبولاً فورياً في أدسنس وتجربة مريحة لزوارك.</p>
 
           <div class="ad-box">
-            <!-- In-Feed Ad Unit 2 -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-format="fluid"
@@ -333,6 +458,16 @@
         <h3>عن الموقع</h3>
         <p>موقع سليمان هو منصة تعليمية تقنية تهدف لمساعدة الشباب العربي على دخول عالم الربح من الإنترنت باحترافية وأمان.</p>
       </div>
+
+      <!-- بطاقة الدعم في الشريط الجانبي -->
+      <div class="sidebar-support">
+        <h3>💙 ادعم الموقع</h3>
+        <div class="price-tag">€5</div>
+        <p>ساعدنا على الاستمرار في نشر المحتوى المجاني</p>
+        <a href="https://ko-fi.com/suleiman1982" target="_blank" class="pay-btn-kofi" style="margin-bottom:10px;">☕ Ko-fi</a>
+        <a href="https://buy.stripe.com/suleiman" target="_blank" class="pay-btn-stripe">💳 Stripe</a>
+      </div>
+
       <div class="sidebar-card">
         <h3>تابعنا</h3>
         <p>يمكنك متابعة تحديثاتنا البرمجية عبر GitHub أو دعمنا للاستمرار في تقديم المحتوى المجاني.</p>
@@ -356,8 +491,9 @@
         </div>
         <a href="https://www.youtube.com/@Finlad-g" target="_blank" rel="noopener" class="youtube-btn">▶ اشترك في القناة</a>
       </div>
+
       <div class="sidebar-card">
-        <!-- Sidebar Ad Unit -->
+        <!-- Sidebar Ad -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-8335579908925045"
@@ -373,7 +509,8 @@
     <div class="footer-links">
       <a href="javascript:void(0)" onclick="showPage('main')">الرئيسية</a>
       <a href="javascript:void(0)" onclick="showPage('privacy')">الخصوصية</a>
-      <a href="https://ko-fi.com/suleiman1982" target="_blank">دعم المشروع</a>
+      <a href="https://ko-fi.com/suleiman1982" target="_blank">☕ Ko-fi</a>
+      <a href="https://buy.stripe.com/suleiman" target="_blank">💳 Stripe</a>
       <a href="https://www.youtube.com/@Finlad-g" target="_blank" style="color:#ff0000;">▶ قناة YouTube</a>
     </div>
     <p style="margin-top: 20px;">جميع الحقوق محفوظة &copy; 2026 — su1982.github.io</p>
